@@ -1,5 +1,2 @@
-require 'spec_helper'
-
-describe "index_pages/home.html.erb" do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+<h1>StaticPages#home</h1>
+<p>Find me in app/views/static_pages/home.html.erb</p>
