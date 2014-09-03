@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  get 'users/new'
-
-  match '/home', :via => [:get], :to => 'static_pages#home' 
-  match '/about', :via => [:get], :to => 'static_pages#about' 
-  match '/help',:via => [:get], :to => 'static_pages#help' 
+ 
+  get '/home' =>   'static_pages#home'
+  get '/about' =>  'static_pages#about'
+  get '/help' =>   'static_pages#help'
+  get '/signup'=>  'users#new'
+  #match '/home', :via => [:get], :to => 'static_pages#home' 
+  # match '/about', :via => [:get], :to => 'static_pages#about' 
+  # match '/help',:via => [:get], :to => 'static_pages#help' 
  
  
 
