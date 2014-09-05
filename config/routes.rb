@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/about' =>  'static_pages#about'
   get '/help' =>   'static_pages#help'
   get '/signup'=>  'users#new'
+  resources :users
+
   #match '/home', :via => [:get], :to => 'static_pages#home' 
   # match '/about', :via => [:get], :to => 'static_pages#about' 
   # match '/help',:via => [:get], :to => 'static_pages#help' 
