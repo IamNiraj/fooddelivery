@@ -31,10 +31,14 @@ end
 group :production do
   gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
-  gem 'unicorn',        '4.8.3'
+ 
 end
 
 require 'rbconfig'
 if RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
   gem 'wdm', '>= 0.1.0'
+end
+
+platforms :ruby do # linux
+  gem 'unicorn'
 end

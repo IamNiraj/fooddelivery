@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+ 
   root 'static_pages#home'
   get '/home' =>   'static_pages#home'
   get '/about' =>  'static_pages#about'
   get '/help' =>   'static_pages#help'
   get '/signup'=>  'users#new'
-  resources :users
+  get '/login' =>  'sessions#new'
+  delete '/logout'=>  'sessions#destroy'
 
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   #match '/home', :via => [:get], :to => 'static_pages#home' 
   # match '/about', :via => [:get], :to => 'static_pages#about' 
   # match '/help',:via => [:get], :to => 'static_pages#help' 
