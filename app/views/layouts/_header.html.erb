@@ -22,19 +22,23 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-           <ul class="nav pull-right">
-            
-          <li class="dropdown" id="menuLogin">
-            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
-            <div class="dropdown-menu" style="padding:17px;">
-              <form class="form" id="formLogin"> 
-                <input name="username" id="username" type="text" placeholder="Username"> 
-                <input name="password" id="password" type="password" placeholder="Password"><br>
-                <button type="button" id="btnLogin" class="btn">Login</button>
-              </form>
-            </div>
-          </li>
-        </ul>
+            <ul class="nav pull-right">
+               <% if logged_in? %>
+                  <li id="fat-menu" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings", '#' %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: "delete" %>
+              </li>
+            </ul>
+        </li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>     
+           </ul>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
