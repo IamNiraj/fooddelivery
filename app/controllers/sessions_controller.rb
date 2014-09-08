@@ -17,8 +17,13 @@ class SessionsController < ApplicationController
 
   def destroy
     forget(current_user)
-  	session.delete(:user_id)
+    end_session
+  end
+
+
+  def end_session
+    session.delete(:user_id)
     @current_user = nil
     redirect_to root_url
-  end
+    end
 end
